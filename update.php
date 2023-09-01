@@ -106,15 +106,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST["update"])) {
                     $img_upload = 'upload/' . $img_new;
                     move_uploaded_file($tmp_name, $img_upload);
                 }
-            } else {
-                $you = "There was an error uploading the image.";
-                header("Location: create.php?error=$you");
-                exit();
             }
-        } else {
-            $you = "Please select an image.>>>>>>>>>";
-            header("Location: create.php?error=$you");
-            exit();
         }
         move_uploaded_file($_FILES['image']['tmp_name'], $path);
         $insertQuery = "UPDATE users SET  first_name='$name9', password1='$password9', joining_date='$date9', salary='$salary9', gender='$gender9', city='$city9', states='$state9',country='$country9', hobbies='$jsondata', images='$img_new' WHERE id='$id'";

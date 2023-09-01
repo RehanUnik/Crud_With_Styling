@@ -108,15 +108,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                     $img_upload = 'upload/' . $img_new;
                     move_uploaded_file($tmp_name, $img_upload);
                 }
-            } else {
-                $you = "There was an error uploading the image.";
-                header("Location: create.php?error=$you");
-                exit();
             }
-        } else {
-            $you = "Please select an image.";
-            header("Location: create.php?error=$you");
-            exit();
         }
         $checkQuery = "SELECT * FROM exp WHERE id = '$id9'";
         $checkResult = mysqli_query($conn, $checkQuery);
